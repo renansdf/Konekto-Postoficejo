@@ -11,9 +11,9 @@ attachmentsRouter.post('/', upload.single('attachment'), async (request: Request
   const attachmentFile = request.file;
 
   const storageProvider = new S3StorageProvider;
-  const result = await storageProvider.saveFile(attachmentFile.filename);
+  const fileURL = await storageProvider.saveFile(attachmentFile.filename);
 
-  return response.json({ ok: result });
+  return response.json({ fileURL });
 });
 
 export default attachmentsRouter;

@@ -1,18 +1,19 @@
-import { S3Client, AbortMultipartUploadCommand, AbortMultipartUploadCommandOutput } from '@aws-sdk/client-s3';
+import { S3 } from '@aws-sdk/client-s3';
 import path from 'path';
+import mime from 'mime';
 import fs from 'fs';
-import configs from '../../configs/storage';
 
+import configs from '../../configs/storage';
 import IStorageProvider from './IStorageProvider';
 
 class S3StorageProvider implements IStorageProvider {
-  private client: S3Client;
+  private client: S3;
 
   constructor() {
-    this.client = new S3Client({
+    this.client = new S3({
       credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || ''
       },
       region: "sa-east-1"
     });
@@ -21,27 +22,25 @@ class S3StorageProvider implements IStorageProvider {
   public async saveFile(file: string): Promise<string> {
     const filePath = path.resolve(configs.tmpFolder, file);
 
-    const fileContent = await fs.promises.readFile(filePath, {
-      encoding: 'utf-8'
-    })
+    const ContentType = mime.getType(filePath);
 
-    const params = {
-      Bucket: 'postoficejo-quotes',
-      Key: file,
-      body: fileContent,
-      ACL: 'public-read',
-      UploadId: file
+    if (!ContentType) {
+      throw new Error('file not found');
     }
 
-    const command = new AbortMultipartUploadCommand(params);
+    const fileContent = await fs.promises.readFile(filePath);
 
-    this.client.send(command,
-      (err: any, info: any) => {
-        console.log(err);
-        console.log(info);
-      });
+    await this.client.putObject({
+      Bucket: configs.aws.bucket,
+      Key: file,
+      ACL: 'public-read',
+      Body: fileContent,
+      ContentType,
+    });
 
-    return file;
+    await fs.promises.unlink(filePath);
+
+    return `https://${configs.aws.bucket}.s3-sa-east-1.amazonaws.com/${file}`;
   }
 }
 
