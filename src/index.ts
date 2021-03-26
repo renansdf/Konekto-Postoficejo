@@ -14,5 +14,5 @@ app.use('/quote', quoteMailerRouter);
 app.use('/attachments', attachmentsRouter);
 
 app.listen(process.env.PORT || 3333, () => {
-  console.log('Servidor iniciado na porta 3333 🚀');
+  console.log('server started @ 3333');
 });

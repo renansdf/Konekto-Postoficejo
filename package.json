@@ -2,7 +2,8 @@
   "type": "module",
   "scripts": {
     "dev:server": "ts-node-dev src/index.ts",
-    "build": "babel src --extensions \".ts,.js\" --out-dir dist --copy-files"
+    "build": "babel src --extensions \".ts,.js\" --out-dir dist --copy-files",
+    "start": "node ./dist"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.9.0",
