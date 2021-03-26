@@ -13,8 +13,8 @@ class MailProvider implements IMailProvider {
   ) {
     const ses = new aws.SES({
       credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || ''
       },
       apiVersion: "2010-12-01",
       region: "sa-east-1"
@@ -35,7 +35,7 @@ class MailProvider implements IMailProvider {
       },
       to: {
         name: to.name,
-        address: 'renan@konekto.me'
+        address: to.email
       },
       subject,
       html: await this.mailTemplateProvider.parse(templateData),

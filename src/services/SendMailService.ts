@@ -1,5 +1,6 @@
 import MailProvider from '../providers/MailProvider/MailProvider';
 import path from 'path';
+
 import IMailProvider from '../providers/MailProvider/IMailProvider';
 import IQuoteRequest from '../routes/quote/IQuoteRequest';
 
@@ -19,10 +20,9 @@ export default class SendMailService {
     cost,
     languageFrom,
     languageTo,
-    quoteUrl,
     attachments
   }: IQuoteRequest): Promise<void> {
-    const quoteTemplate = path.resolve(__dirname, '..', 'providers', 'views', 'quote.hbs');
+    const quoteTemplate = path.resolve(__dirname, '..', 'providers', 'MailTemplateProvider', 'views', 'quote.hbs');
 
     await this.mailProvider.sendEmail({
       to: {
@@ -40,10 +40,9 @@ export default class SendMailService {
           deadline,
           languageFrom,
           languageTo,
-          quoteUrl
+          attachments,
         }
-      },
-      attachments: attachments
+      }
     });
   }
 }

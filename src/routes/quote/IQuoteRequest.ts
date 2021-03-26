@@ -8,9 +8,8 @@ export default interface IQuoteRequest {
   cost: string;
   languageFrom: string;
   languageTo: string;
-  quoteUrl: string;
   attachments: {
     filename: string;
-    content: string | Buffer;
+    content: string;
   }[];
 }
