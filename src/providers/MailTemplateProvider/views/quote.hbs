@@ -14,8 +14,13 @@
   <p><strong>serviço:</strong> {{service}}</p>
   <p><strong>custo:</strong> {{cost}}</p>
   <p><strong>prazo:</strong> {{deadline}}</p>
-  <p><strong>língua matriz:</strong> {{languageFrom}}</p>
+  <p><strong>língua original:</strong> {{languageFrom}}</p>
   <p><strong>língua final:</strong> {{languageTo}}</p>
-  <p>você também pode fazer o download do pdf por este link {{quoteUrl}}</p>
+  <p>O seu orçamento e arquivos para tradução foram adicionados a seguir.</p>
+  {{#each attachments}}
+  <ul>
+    <li><a href={{content}}>{{filename}}</a></li>
+  </ul>
+  {{/each}}
   <p>Obrigado, <br /><strong>Equipe Konekto</strong></p>
 </div>

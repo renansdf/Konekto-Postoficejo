@@ -1,5 +1,5 @@
 interface IMailVariables {
-  [key: string]: string | number;
+  [key: string]: string | number | { filename: string; content: string; }[];
 }
 
 export interface IParseMailTemplateDTO {
