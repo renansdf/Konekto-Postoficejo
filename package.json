@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "scripts": {
     "dev:server": "ts-node-dev src/index.ts",
     "build": "babel src --extensions \".ts,.js\" --out-dir dist --copy-files",
