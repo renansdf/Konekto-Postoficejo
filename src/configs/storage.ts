@@ -7,6 +7,9 @@ const filesPath = path.resolve(__dirname, '..', '..', 'tmp');
 export default {
   tmpFolder: filesPath,
   uploadsFolder: path.resolve(filesPath, 'uploads'),
+  aws: {
+    bucket: 'postoficejo-quotes'
+  },
 
   storage: multer.diskStorage({
     destination: filesPath,
