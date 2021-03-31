@@ -4,7 +4,7 @@ import path from 'path';
 import IMailProvider from '../providers/MailProvider/IMailProvider';
 import IQuoteRequest from '../routes/quote/IQuoteRequest';
 
-export default class SendMailService {
+export default class SendQuoteService {
   private mailProvider: IMailProvider;
 
   constructor() {
@@ -23,6 +23,7 @@ export default class SendMailService {
     attachments
   }: IQuoteRequest): Promise<void> {
     const quoteTemplate = path.resolve(__dirname, '..', 'providers', 'MailTemplateProvider', 'views', 'quote.hbs');
+    const saleTemplate = path.resolve(__dirname, '..', 'providers', 'MailTemplateProvider', 'views', 'sale.hbs');
 
     await this.mailProvider.sendEmail({
       to: {
@@ -34,6 +35,28 @@ export default class SendMailService {
         file: quoteTemplate,
         variables: {
           name,
+          company,
+          service,
+          cost,
+          deadline,
+          languageFrom,
+          languageTo,
+          attachments,
+        }
+      }
+    });
+
+    await this.mailProvider.sendEmail({
+      to: {
+        name: 'Vendas',
+        email: 'konekters@konekto.me'
+      },
+      subject: "Konekto | Pedido de Orçamento",
+      templateData: {
+        file: saleTemplate,
+        variables: {
+          name,
+          email,
           company,
           service,
           cost,

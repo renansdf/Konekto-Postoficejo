@@ -1,0 +1,44 @@
+<div style="background: #b776b2; padding: 20px 0;">
+  <div
+    style="font-size: 16px; max-width: 600px; color: #94498e; margin: 0 auto; background: #fff; padding: 0 0 20px; text-align:center;">
+    <div style="background: #b776b2; padding: 40px;">
+      <img src="https://konekto-assets.s3-sa-east-1.amazonaws.com/logo-horizontal-branca.png"
+        style="margin: 0 auto; max-width: 350px;" />
+    </div>
+    <h3 style="margin: 30px 0 5px; letter-spacing: 1px;">Olá Konekter</h3>
+    <p style="margin: 0px 0 10px; letter-spacing: 1px; max-width: 550px;">Recebemos um novo pedido de orçamento<br />
+      cliente <strong>{{name}}</strong> | empresa <strong>{{company}}</strong> | email {{email}}
+    </p>
+    <p style="margin: 0px 0 10px; letter-spacing: 1px;">Abaixo os dados do orçamento:</p>
+    <table style="margin: 30px auto; border-spacing: 0px; border: 1px solid grey; color: grey; max-width: 530px;">
+      <thead>
+        <tr>
+          <th style="padding: 5px 10px; text-align:left; border: 1px solid grey">serviço</th>
+          <th style="padding: 5px 10px; text-align:left; border: 1px solid grey">custo</th>
+          <th style="padding: 5px 10px; text-align:left; border: 1px solid grey">prazo</th>
+          <th style="padding: 5px 10px; text-align:left; border: 1px solid grey">língua original</th>
+          <th style="padding: 5px 10px; text-align:left; border: 1px solid grey">língua final</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{service}}</td>
+          <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">R${{cost}}</td>
+          <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{deadline}} dias</td>
+          <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{languageFrom}}</td>
+          <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{languageTo}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    {{#if attachments}}
+    <h3 style="margin: 0px 0 5px; letter-spacing: 1px;">Arquivos para tradução</h3>
+    {{#each attachments}}
+    <a href={{content}}>{{filename}}</a><br />
+    {{/each}}
+    {{/if}}
+
+    <p style="margin: 20px 0 10px; letter-spacing: 1px; font-size: 14px;font-style: italic;">Enviado automaticamente de
+      orcamento.konekto.me</p>
+  </div>
+</div>
