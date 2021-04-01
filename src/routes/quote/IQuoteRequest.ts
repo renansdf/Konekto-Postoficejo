@@ -4,7 +4,6 @@ export default interface IQuoteRequest {
   service: string;
   company: string;
   cpfcnpj: string;
-  product: string;
   phone: number;
   date: string;
   deadline: string;
