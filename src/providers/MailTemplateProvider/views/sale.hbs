@@ -6,8 +6,9 @@
         style="margin: 0 auto; max-width: 350px;" />
     </div>
     <h3 style="margin: 30px 0 5px; letter-spacing: 1px;">Olá Konekter</h3>
-    <p style="margin: 0px 0 10px; letter-spacing: 1px; max-width: 550px;">Recebemos um novo pedido de orçamento<br />
-      cliente <strong>{{name}}</strong> | empresa <strong>{{company}}</strong> | email {{email}}
+    <p style="margin: 0px auto 10px; letter-spacing: 1px; max-width: 550px;">Recebemos um novo pedido de orçamento<br />
+      cliente <strong>{{name}}</strong> | empresa <strong>{{company}}</strong><br />email {{email}} | telefone {{phone}}
+      <br /> CPF/CNPJ {{cpfcnpj}}
     </p>
     <p style="margin: 0px 0 10px; letter-spacing: 1px;">Abaixo os dados do orçamento:</p>
     <table style="margin: 30px auto; border-spacing: 0px; border: 1px solid grey; color: grey; max-width: 530px;">
@@ -22,7 +23,7 @@
       </thead>
       <tbody>
         <tr>
-          <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{service}}</td>
+          <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{service}} | {{product}}</td>
           <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">R${{cost}}</td>
           <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{deadline}} dias</td>
           <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{languageFrom}}</td>
