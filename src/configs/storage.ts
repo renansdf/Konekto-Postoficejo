@@ -15,7 +15,8 @@ export default {
     destination: filesPath,
     filename(request, file, callback) {
       const filehash = crypto.randomBytes(10).toString('hex');
-      const filename = `${filehash}-${file.originalname}`;
+      const parsedName = file.originalname.replace(/[^a-zA-Z.]/g, '');
+      const filename = `${filehash}-${parsedName}`;
 
       return callback(null, filename);
     },
