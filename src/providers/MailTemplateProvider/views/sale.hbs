@@ -32,11 +32,16 @@
       </tbody>
     </table>
 
+    {{#if message}}
+      <h3 style="margin: 0px 0 5px; letter-spacing: 1px;">Informações para o tradutor</h3>
+      <p style="margin: 0px auto 10px; letter-spacing: 1px; max-width: 550px;">{{message}}</p>
+    {{/if}}
+
     {{#if attachments}}
-    <h3 style="margin: 0px 0 5px; letter-spacing: 1px;">Arquivos para tradução</h3>
-    {{#each attachments}}
-    <a href={{content}}>{{filename}}</a><br />
-    {{/each}}
+      <h3 style="margin: 0px 0 5px; letter-spacing: 1px;">Arquivos para tradução</h3>
+      {{#each attachments}}
+        <a href={{content}}>{{filename}}</a><br />
+      {{/each}}
     {{/if}}
 
     <p style="margin: 20px 0 10px; letter-spacing: 1px; font-size: 14px;font-style: italic;">Enviado automaticamente de
