@@ -52,7 +52,7 @@ export default class SendQuoteService {
     await this.mailProvider.sendEmail({
       to: {
         name: 'Vendas',
-        email: 'renan@konekto.me'
+        email: 'konekters@konekto.me'
       },
       subject: "Konekto | Pedido de Orçamento",
       templateData: {
