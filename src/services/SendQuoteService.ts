@@ -17,6 +17,7 @@ export default class SendQuoteService {
     service,
     company,
     cpfcnpj,
+    message,
     phone,
     deadline,
     cost,
@@ -51,7 +52,7 @@ export default class SendQuoteService {
     await this.mailProvider.sendEmail({
       to: {
         name: 'Vendas',
-        email: 'konekters@konekto.me'
+        email: 'renan@konekto.me'
       },
       subject: "Konekto | Pedido de Orçamento",
       templateData: {
@@ -62,6 +63,7 @@ export default class SendQuoteService {
           company,
           cpfcnpj,
           phone,
+          message,
           service,
           cost,
           deadline,
