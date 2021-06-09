@@ -9,6 +9,7 @@ export default interface IQuoteRequest {
   date: string;
   deadline: string;
   cost: string;
+  numberOfWords: number;
   languageFrom: string;
   languageTo: string;
   attachments: {
