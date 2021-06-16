@@ -1,0 +1,24 @@
+<div style="background: grey; padding: 20px 0;">
+  <div
+    style="font-size: 16px; max-width: 600px; color: grey; margin: 0 auto; background: #fff; padding: 0 0 20px; text-align:center;">
+    <div style="background: grey; padding: 40px;">
+      <img src="https://konekto-assets.s3-sa-east-1.amazonaws.com/logo-horizontal-branca.png"
+        style="margin: 0 auto; max-width: 350px;" />
+    </div>
+    <h3 style="margin: 30px 0 5px; letter-spacing: 1px;">Olá Konekter</h3>
+    <p style="margin: 0px auto 10px; letter-spacing: 1px; max-width: 550px;">Contato pelo site<br />
+      cliente <strong>{{name}}</strong> | empresa <strong>{{company}}</strong><br />email {{email}} | telefone {{phone}}
+    </p>
+    <p style="margin: 0px 0 10px; letter-spacing: 1px;">{{message}}</p>
+    
+    {{#if attachments}}
+      <h3 style="margin: 0px 0 5px; letter-spacing: 1px;">Arquivos</h3>
+      {{#each attachments}}
+        <a href={{content}}>{{filename}}</a><br />
+      {{/each}}
+    {{/if}}
+
+    <p style="margin: 20px 0 10px; letter-spacing: 1px; font-size: 14px;font-style: italic;">Enviado automaticamente de
+      orcamento.konekto.me</p>
+  </div>
+</div>
