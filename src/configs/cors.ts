@@ -8,9 +8,9 @@ interface ICorsConfig {
 
 const corsConfig: ICorsConfig = {
   production: {
-    quote: ['https://orcamento.konekto.me'],
-    attachments: ['https://orcamento.konekto.me', 'https://konekto.me'],
-    contact: ['https://konekto.webflow.io', 'https://konekto.me']
+    quote: ['https://orcamento.konekto.me/'],
+    attachments: ['https://orcamento.konekto.me/', 'https://www.konekto.me'],
+    contact: ['https://www.konekto.me']
   },
   development: {
     quote: ['*'],
