@@ -9,7 +9,7 @@ import attachmentsRouter from './attachments/AttachmentsRouter';
 import contactRouter from './contact/contactRouter';
 
 const routes = Router();
-const environment = process.env.CURRENT_ENVIRONMENT ||= 'development';
+const environment = 'development';
 
 routes.use('/quote', cors({origin: corsConfig[environment].quote}), quoteMailerRouter);
 routes.use('/attachments', cors({origin: corsConfig[environment].attachments}), attachmentsRouter);
