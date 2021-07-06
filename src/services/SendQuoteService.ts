@@ -53,7 +53,7 @@ export default class SendQuoteService {
     await this.mailProvider.sendEmail({
       to: {
         name: 'Vendas',
-        email: process.env.DEFAULT_TO_EMAIL = 'konekters@konekto.me',
+        email: process.env.DEFAULT_TO_EMAIL ||= 'renan@konekto.me',
       },
       subject: "Konekto | Pedido de Orçamento",
       templateData: {
