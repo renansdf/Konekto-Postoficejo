@@ -2,18 +2,17 @@ import {Router, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 
 import AppError from '../shared/AppError';
-import corsConfig from '../configs/cors';
 
 import quoteMailerRouter from './quote/QuoteMailer';
 import attachmentsRouter from './attachments/AttachmentsRouter';
 import contactRouter from './contact/contactRouter';
 
 const routes = Router();
-const environment = 'development';
+routes.use(cors());
 
-routes.use('/quote', cors({origin: corsConfig[environment].quote}), quoteMailerRouter);
-routes.use('/attachments', cors({origin: corsConfig[environment].attachments}), attachmentsRouter);
-routes.use('/contact', cors({origin: corsConfig[environment].contact}), contactRouter);
+routes.use('/quote', quoteMailerRouter);
+routes.use('/attachments', attachmentsRouter);
+routes.use('/contact', contactRouter);
 
 routes.use((err: Error, request: Request, response: Response, next: NextFunction) => {
   if (err instanceof AppError) {
