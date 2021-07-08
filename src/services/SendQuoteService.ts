@@ -22,6 +22,7 @@ export default class SendQuoteService {
     deadline,
     cost,
     numberOfWords,
+    totalMinutes,
     languageFrom,
     languageTo,
     attachments
@@ -68,6 +69,7 @@ export default class SendQuoteService {
           service,
           cost,
           numberOfWords,
+          totalMinutes,
           deadline,
           languageFrom,
           languageTo,

@@ -19,7 +19,7 @@
           <th style="padding: 5px 10px; text-align:left; border: 1px solid grey">prazo</th>
           <th style="padding: 5px 10px; text-align:left; border: 1px solid grey">língua original</th>
           <th style="padding: 5px 10px; text-align:left; border: 1px solid grey">língua final</th>
-          <th style="padding: 5px 10px; text-align:left; border: 1px solid grey">total de palavras</th>
+          <th style="padding: 5px 10px; text-align:left; border: 1px solid grey">total de {{#if numberOfWords}}palavras{{/if}}{{#if totalMinutes}}minutos{{/if}}</th>
         </tr>
       </thead>
       <tbody>
@@ -29,7 +29,12 @@
           <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{deadline}} dias</td>
           <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{languageFrom}}</td>
           <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{languageTo}}</td>
-          <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{numberOfWords}}</td>
+          {{#if numberOfWords}}
+            <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{numberOfWords}}</td>
+          {{/if}}
+          {{#if totalMinutes}}
+            <td style="padding: 5px 10px; text-align:left; border: 1px solid grey">{{totalMinutes}}</td>
+          {{/if}}
         </tr>
       </tbody>
     </table>
