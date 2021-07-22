@@ -1,9 +1,9 @@
 import { Router, Request, Response } from 'express';
 import SendQuoteService from '../../services/SendQuoteService';
 
-const quoteMailerRouter = Router();
+const quoteRouter = Router();
 
-quoteMailerRouter.post('/', async (request: Request, response: Response) => {
+quoteRouter.post('/', async (request: Request, response: Response) => {
   const { name, email, service, company, phone, cpfcnpj, message, date, deadline, cost, numberOfWords, totalMinutes, languageFrom, languageTo, attachments } = request.body;
 
   const sendQuoteService = new SendQuoteService;
@@ -13,4 +13,4 @@ quoteMailerRouter.post('/', async (request: Request, response: Response) => {
   return response.json({ ok: true });
 });
 
-export default quoteMailerRouter;
+export default quoteRouter;
